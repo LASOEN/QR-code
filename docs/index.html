@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102c4d">
+  <meta name="description" content="Offline bruikbare SEPA-QR kassa van Koninklijke Fanfare Nut en Vermaak Maldegem.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Fanfare QR Kassa">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+  <link rel="apple-touch-icon" href="./icons/icon-192.png">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>QR Kassa | Nut en Vermaak</title>
+  <script src="./js/qrcode.bundle.js" defer></script>
+  <script src="./js/app.js" defer></script>
+</head>
+<body>
+<main class="shell">
+  <header class="header">
+    <span class="eyebrow">Koninklijke fanfare en drumband</span>
+    <h1>Nut en Vermaak <span>Maldegem</span></h1>
+    <div class="header-sub"><span class="brand-dot"></span>QR-KASSA <span class="version">versie 1.0.0</span></div>
+  </header>
+
+  <section class="card" id="inputCard" aria-labelledby="formTitle">
+    <div class="section-heading"><span class="step-number">1</span><h2 id="formTitle">Nieuwe betaling</h2></div>
+    <form id="payForm" novalidate>
+      <label for="amount">Te betalen bedrag</label>
+      <div class="amount-wrap"><span class="currency">€</span><input id="amount" name="amount" inputmode="decimal" autocomplete="off" type="text" placeholder="0,00" aria-describedby="amountHelp" maxlength="12" required></div>
+      <p class="micro" id="amountHelp">Bijvoorbeeld: 2,50 of 12,00</p>
+      <label for="description">Omschrijving</label>
+      <input id="description" name="description" type="text" maxlength="45" value="Barontvangst" autocomplete="off">
+      <p class="micro">Je mag de omschrijving meteen aanpassen. Een herkenbare referentie wordt automatisch toegevoegd.</p>
+      <div class="error" id="formError" aria-live="polite" hidden></div>
+      <button type="submit" class="primary">Toon betaal-QR-code <span aria-hidden="true">→</span></button>
+    </form>
+  </section>
+
+  <section class="card payment-card" id="resultCard" aria-labelledby="qrTitle" hidden>
+    <div class="section-heading"><span class="step-number">2</span><h2 id="qrTitle">Scan en betaal</h2></div>
+    <div class="pay-amount" id="displayAmount">€ 0,00</div>
+    <div id="qr" class="qr-area" role="img" aria-label="SEPA-betaal-QR-code"></div>
+    <p class="scan-tip">Open je bankapp op een <b>tweede smartphone</b> en kies <b>QR-code scannen</b>.</p>
+    <div class="details">
+      <div><span>Begunstigde</span><strong>KONINKLIJKE FANFARE NUT EN VERMAAK</strong></div>
+      <div><span>IBAN</span><strong class="mono">BE34 7373 0730 0790</strong></div>
+      <div><span>Mededeling</span><strong id="displayReference" class="reference"></strong></div>
+    </div>
+    <div class="notice"><strong>Belangrijk:</strong> de QR-code blijft zichtbaar na het scannen. Deze app ontvangt <strong>geen betaalbevestiging</strong> van de bank. Controleer de ontvangst op de bankrekening.</div>
+    <button id="newPayment" type="button" class="primary secondary">Nieuwe betaling</button>
+  </section>
+
+  <section class="mini-card">
+    <div class="status-row"><span id="offlineStatus">Offlinefunctie wordt gecontroleerd…</span><span class="bullet">•</span><span>Geen Payconiq</span></div>
+    <p>Deze QR-code dient voor een <b>gewone SEPA-overschrijving</b>. Scannen werkt enkel met bankapps die EPC-QR ondersteunen. Betalen vereist doorgaans internet op het toestel van de klant.</p>
+    <details class="help"><summary>Installeren op Android of iPhone</summary>
+      <p><b>iPhone:</b> open deze website in Safari, tik op Deel en kies <b>Zet op beginscherm</b>.</p>
+      <p><b>Android:</b> open in Chrome, kies het menu (⋮) en tik op <b>App installeren</b> of <b>Toevoegen aan startscherm</b>.</p>
+      <p>Open de app één keer met internet om de offline bestanden op te slaan. Daarna kan je QR-codes zonder internet maken.</p>
+    </details>
+  </section>
+  <footer>QR-Kassa · v1.0.0 · Fanfare Nut en Vermaak Maldegem</footer>
+</main>
+</body>
+</html>

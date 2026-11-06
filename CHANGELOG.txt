@@ -1,0 +1,15 @@
+QR KASSA - STRIKT VERSIEBEHEER
+=======================================
+
+Versie 1.0.0 - 06-11-2026 - eerste publiceerbare versie
+- Zelfstandige responsive webapp voor Android en iPhone.
+- Begunstigde en IBAN vooraf ingevuld en niet wijzigbaar door bezoeker.
+- Standaardomschrijving Barontvangst, onmiddellijk wijzigbaar.
+- EPC/SEPA-QR met bedrag, IBAN, begunstigde, betalingomschrijving.
+- Per toestel: datum, lokale toestelcode en volgnummer in mededeling.
+- Geen Payconiq/Mollie, geen automatische bankterugkoppeling.
+- Offline opslag via service worker; begint na HTTPS-installatie.
+- GitHub Pages installer en versiegecontroleerd update-script.
+
+Regel: iedere inhoudelijke update verhoogt het versienummer in alle
+betrokken bestanden en wordt als nieuwe sectie hier beschreven.
